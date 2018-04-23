@@ -31,6 +31,8 @@
 
 package com.toy.anagrams.lib;
 
+import java.util.Random;
+
 /**
  * Implementation of the logic for the Anagram Game application.
  */
@@ -84,8 +86,8 @@ final class StaticWordLibrary extends WordLibrary {
         "traditional",
         "happiness",
         "surprise"};
-
-    private static final String[] SCRAMBLED_WORD_LIST = {
+/*
+   private static final String[] SCRAMBLED_WORD_LIST = {
         "batsratcoin",
         "maibuguos",
         "ratimhteci",
@@ -133,8 +135,10 @@ final class StaticWordLibrary extends WordLibrary {
         "rtdatioialn",
         "pahnspsie",
         "espeuris"
-    };
+    };*/
     
+  
+   
     final static WordLibrary DEFAULT = new StaticWordLibrary();
 
     /**
@@ -149,7 +153,8 @@ final class StaticWordLibrary extends WordLibrary {
      * @return word at that index in its natural form
      */
     public String getWord(int idx) {
-        return WORD_LIST[idx];
+         return WORD_LIST[idx];
+         
     }
 
     /**
@@ -157,9 +162,24 @@ final class StaticWordLibrary extends WordLibrary {
      * @param idx index of required word
      * @return word at that index in its scrambled form
      */
-    public String getScrambledWord(int idx) {
-        return SCRAMBLED_WORD_LIST[idx];
+    
+    public String getScrambledWord(String str) {
+        //参考にしたサイト
+    	//https://netbeans.org/competition/win-with-netbeans/get-started-with-nb_ja.html
+    	Random rnd=new Random();
+    	String newstr="";
+    	for(int j=0;j<str.length();j++){
+    		//if(rnd.nextBoolean()) newstr=newstr+str.charAt(j);
+    		//else newstr=str.charAt(j)+str;
+    		if(j%2==0) newstr=newstr+str.charAt(j);
+    		else newstr=str.charAt(j)+newstr;
+    	}
+    	return newstr;
     }
+        /*public String getScrambledWord(int idx) {
+        return SCRAMBLED_WORD_LIST[idx];
+    	
+    }*/
 
     /**
      * Gets the number of words in the library.
@@ -178,5 +198,11 @@ final class StaticWordLibrary extends WordLibrary {
     public boolean isCorrect(int idx, String userGuess) {
         return userGuess.equals(getWord(idx));
     }
+    
+    public String ScrambledWord(String str){
+    	char[] chars = str.toCharArray();
+    	String newstr = new String(chars);
+    	return newstr;
+}
 
 }
