@@ -35,6 +35,8 @@ import com.toy.anagrams.lib.WordLibrary;
 import java.awt.Dimension;
 import java.awt.Point;
 import java.awt.Toolkit;
+import java.util.Random;
+
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
@@ -81,10 +83,14 @@ public class Anagrams extends JFrame {
     /** Creates new form Anagrams */
     public Anagrams() {
         wordLibrary = WordLibrary.getDefault();
-        
+        Random rnd = new Random();
+        wordIdx = rnd.nextInt(wordLibrary.getSize());
         initComponents();
         getRootPane().setDefaultButton(guessButton);
-        scrambledWord.setText(wordLibrary.getScrambledWord(wordIdx));
+        //scrambledWord.setText(wordLibrary.getWord(wordIdx));
+        String question =wordLibrary.getWord(wordIdx);
+        question=wordLibrary.getScrambledWord(question);
+        scrambledWord.setText(question);
         pack();
         guessedWord.requestFocusInWindow();
         // Center in the screen
@@ -254,10 +260,20 @@ public class Anagrams extends JFrame {
     }//GEN-LAST:event_aboutMenuItemActionPerformed
 
     private void nextTrialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextTrialActionPerformed
-        wordIdx = (wordIdx + 1) % wordLibrary.getSize();
+        wordLibrary = WordLibrary.getDefault();
+        Random rnd = new Random();
+        wordIdx = rnd.nextInt(wordLibrary.getSize());
+        //scrambledWord.setText(wordLibrary.getWord(wordIdx));
+        String question =wordLibrary.getWord(wordIdx);
+        question=wordLibrary.getScrambledWord(question);
+        scrambledWord.setText(question);
+        //initComponents();
+        //getRootPane().setDefaultButton(guessButton);
+        //scrambledWord.setText(wordLibrary.getWord(wordIdx));wordIdx = (wordIdx + 1) % wordLibrary.getSize();
 
-        feedbackLabel.setText(" ");
-        scrambledWord.setText(wordLibrary.getScrambledWord(wordIdx));
+        //feedbackLabel.setText(" ");
+        //scrambledWord.setText(wordLibrary.getWord(wordIdx));wordIdx = (wordIdx + 1) % wordLibrary.getSize();
+        //scrambledWord.setText(wordLibrary.getScrambledWord(wordIdx));
         guessedWord.setText("");
         getRootPane().setDefaultButton(guessButton);
 
