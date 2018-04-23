@@ -61,7 +61,7 @@ public abstract class WordLibrary {
      * @return word at that index in its scrambled form
      */
     //public abstract String getScrambledWord(int idx);
-    public abstract String getScrambledWord(String str);
+    public abstract String getScrambledWord(String str, int level);
 
     /**
      * Gets the number of words in the library.

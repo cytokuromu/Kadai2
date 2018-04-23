@@ -38,171 +38,107 @@ import java.util.Random;
  */
 final class StaticWordLibrary extends WordLibrary {
 
-    private static final String[] WORD_LIST = {
-        "abstraction",
-        "ambiguous",
-        "arithmetic",
-        "backslash",
-        "bitmap",
-        "circumstance",
-        "combination",
-        "consequently",
-        "consortium",
-        "decrementing",
-        "dependency",
-        "disambiguate",
-        "dynamic",
-        "encapsulation",
-        "equivalent",
-        "expression",
-        "facilitate",
-        "fragment",
-        "hexadecimal",
-        "implementation",
-        "indistinguishable",
-        "inheritance",
-        "internet",
-        "java",
-        "localization",
-        "microprocessor",
-        "navigation",
-        "optimization",
-        "parameter",
-        "patrick",
-        "pickle",
-        "polymorphic",
-        "rigorously",
-        "simultaneously",
-        "specification",
-        "structure",
-        "lexical",
-        "likewise",
-        "management",
-        "manipulate",
-        "mathematics",
-        "hotjava",
-        "vertex",
-        "unsigned",
-        "traditional",
-        "happiness",
-        "surprise"};
-/*
-   private static final String[] SCRAMBLED_WORD_LIST = {
-        "batsratcoin",
-        "maibuguos",
-        "ratimhteci",
-        "abkclssha",
-        "ibmtpa",
-        "iccrmutsnaec",
-        "ocbmnitaoni",
-        "ocsnqeeutnyl",
-        "ocsnroitmu",
-        "edrcmeneitgn",
-        "edepdnneyc",
-        "idasbmgiauet",
-        "ydanicm",
-        "neacsplutaoni",
-        "qeiuaveltn",
-        "xerpseisno",
-        "aficilatet",
-        "rfgaemtn",
-        "ehaxedicalm",
-        "milpmeneatitno",
-        "niidtsniugsiahleb",
-        "niehiratcen",
-        "nietnret",
-        "ajav",
-        "olacilazitno",
-        "imrcpoorecssro",
-        "anivagitno",
-        "poitimazitno",
-        "aparemert",
-        "aprtcki",
-        "ipkcel",
-        "opylomprich",
-        "irogorsuyl",
-        "isumtlnaoesuyl",
-        "psceficitaoni",
-        "tsurtcreu",
-        "elixalc",
-        "ilekiwse",
-        "amanegemtn",
-        "aminupalet",
-        "amhtmetacsi",
-        "ohjtvaa",
-        "evtrxe",
-        "nuisngde",
-        "rtdatioialn",
-        "pahnspsie",
-        "espeuris"
-    };*/
-    
-  
-   
-    final static WordLibrary DEFAULT = new StaticWordLibrary();
+	private static final String[] WORD_LIST = { "abstraction", "ambiguous", "arithmetic", "backslash", "bitmap",
+			"circumstance", "combination", "consequently", "consortium", "decrementing", "dependency", "disambiguate",
+			"dynamic", "encapsulation", "equivalent", "expression", "facilitate", "fragment", "hexadecimal",
+			"implementation", "indistinguishable", "inheritance", "internet", "java", "localization", "microprocessor",
+			"navigation", "optimization", "parameter", "patrick", "pickle", "polymorphic", "rigorously",
+			"simultaneously", "specification", "structure", "lexical", "likewise", "management", "manipulate",
+			"mathematics", "hotjava", "vertex", "unsigned", "traditional", "happiness", "surprise" };
+	/*
+	 * private static final String[] SCRAMBLED_WORD_LIST = { "batsratcoin",
+	 * "maibuguos", "ratimhteci", "abkclssha", "ibmtpa", "iccrmutsnaec",
+	 * "ocbmnitaoni", "ocsnqeeutnyl", "ocsnroitmu", "edrcmeneitgn",
+	 * "edepdnneyc", "idasbmgiauet", "ydanicm", "neacsplutaoni", "qeiuaveltn",
+	 * "xerpseisno", "aficilatet", "rfgaemtn", "ehaxedicalm", "milpmeneatitno",
+	 * "niidtsniugsiahleb", "niehiratcen", "nietnret", "ajav", "olacilazitno",
+	 * "imrcpoorecssro", "anivagitno", "poitimazitno", "aparemert", "aprtcki",
+	 * "ipkcel", "opylomprich", "irogorsuyl", "isumtlnaoesuyl", "psceficitaoni",
+	 * "tsurtcreu", "elixalc", "ilekiwse", "amanegemtn", "aminupalet",
+	 * "amhtmetacsi", "ohjtvaa", "evtrxe", "nuisngde", "rtdatioialn",
+	 * "pahnspsie", "espeuris" };
+	 */
 
-    /**
-     * Singleton class.
-     */
-    private StaticWordLibrary() {
-    }
+	final static WordLibrary DEFAULT = new StaticWordLibrary();
 
-    /**
-     * Gets the word at a given index.
-     * @param idx index of required word
-     * @return word at that index in its natural form
-     */
-    public String getWord(int idx) {
-         return WORD_LIST[idx];
-         
-    }
+	/**
+	 * Singleton class.
+	 */
+	private StaticWordLibrary() {
+	}
 
-    /**
-     * Gets the word at a given index in its scrambled form.
-     * @param idx index of required word
-     * @return word at that index in its scrambled form
-     */
-    
-    public String getScrambledWord(String str) {
-        //参考にしたサイト
-    	//https://netbeans.org/competition/win-with-netbeans/get-started-with-nb_ja.html
-    	Random rnd=new Random();
-    	String newstr="";
-    	for(int j=0;j<str.length();j++){
-    		//if(rnd.nextBoolean()) newstr=newstr+str.charAt(j);
-    		//else newstr=str.charAt(j)+str;
-    		if(j%2==0) newstr=newstr+str.charAt(j);
-    		else newstr=str.charAt(j)+newstr;
-    	}
-    	return newstr;
-    }
-        /*public String getScrambledWord(int idx) {
-        return SCRAMBLED_WORD_LIST[idx];
-    	
-    }*/
+	/**
+	 * Gets the word at a given index.
+	 * 
+	 * @param idx
+	 *            index of required word
+	 * @return word at that index in its natural form
+	 */
+	public String getWord(int idx) {
+		return WORD_LIST[idx];
 
-    /**
-     * Gets the number of words in the library.
-     * @return the total number of plain/scrambled word pairs in the library
-     */
-    public int getSize() {
-        return WORD_LIST.length;
-    }
+	}
 
-    /**
-     * Checks whether a user's guess for a word at the given index is correct.
-     * @param idx index of the word guessed
-     * @param userGuess the user's guess for the actual word
-     * @return true if the guess was correct; false otherwise
-     */
-    public boolean isCorrect(int idx, String userGuess) {
-        return userGuess.equals(getWord(idx));
-    }
-    
-    public String ScrambledWord(String str){
-    	char[] chars = str.toCharArray();
-    	String newstr = new String(chars);
-    	return newstr;
-}
+	/**
+	 * Gets the word at a given index in its scrambled form.
+	 * 
+	 * @param idx
+	 *            index of required word
+	 * @return word at that index in its scrambled form
+	 */
+
+	public String getScrambledWord(String str, int level) {
+		// 参考にしたサイト
+		// https://netbeans.org/competition/win-with-netbeans/get-started-with-nb_ja.html
+		// Random rnd = new Random();
+		String newstr = "";
+		int n = level + 2;
+		for (int j = 0; j < n; j++) {
+			// if(rnd.nextBoolean()) newstr = newstr + str.charAt(j);
+			// else newstr = str.charAt(j) + newstr;
+			if (j % 2 == 0)
+				newstr = newstr + str.charAt(j);
+			else
+				newstr = str.charAt(j) + newstr;
+		}
+		for (int k = n; k < str.length(); k++) {
+			newstr = newstr + str.charAt(k);
+		}
+		return newstr;
+	}
+	/*
+	 * public String getScrambledWord(int idx) { return
+	 * SCRAMBLED_WORD_LIST[idx];
+	 * 
+	 * }
+	 */
+
+	/**
+	 * Gets the number of words in the library.
+	 * 
+	 * @return the total number of plain/scrambled word pairs in the library
+	 */
+	public int getSize() {
+		return WORD_LIST.length;
+	}
+
+	/**
+	 * Checks whether a user's guess for a word at the given index is correct.
+	 * 
+	 * @param idx
+	 *            index of the word guessed
+	 * @param userGuess
+	 *            the user's guess for the actual word
+	 * @return true if the guess was correct; false otherwise
+	 */
+	public boolean isCorrect(int idx, String userGuess) {
+		return userGuess.equals(getWord(idx));
+	}
+
+	public String ScrambledWord(String str) {
+		char[] chars = str.toCharArray();
+		String newstr = new String(chars);
+		return newstr;
+	}
 
 }

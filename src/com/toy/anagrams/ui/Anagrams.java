@@ -88,8 +88,9 @@ public class Anagrams extends JFrame {
         initComponents();
         getRootPane().setDefaultButton(guessButton);
         //scrambledWord.setText(wordLibrary.getWord(wordIdx));
-        String question =wordLibrary.getWord(wordIdx);
-        question=wordLibrary.getScrambledWord(question);
+        String question = wordLibrary.getWord(wordIdx);
+        int level = selectLevel.getSelectedIndex();
+        question = wordLibrary.getScrambledWord(question, level);
         scrambledWord.setText(question);
         pack();
         guessedWord.requestFocusInWindow();
@@ -264,8 +265,9 @@ public class Anagrams extends JFrame {
         Random rnd = new Random();
         wordIdx = rnd.nextInt(wordLibrary.getSize());
         //scrambledWord.setText(wordLibrary.getWord(wordIdx));
-        String question =wordLibrary.getWord(wordIdx);
-        question=wordLibrary.getScrambledWord(question);
+        String question = wordLibrary.getWord(wordIdx);
+        int level = selectLevel.getSelectedIndex();
+        question = wordLibrary.getScrambledWord(question, level);
         scrambledWord.setText(question);
         //initComponents();
         //getRootPane().setDefaultButton(guessButton);
